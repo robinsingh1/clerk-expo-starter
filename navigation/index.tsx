@@ -11,6 +11,8 @@ import SignUpScreen from "../screens/SignUpScreen";
 import SignInScreen from "../screens/SignInScreen";
 import VerifyCodeScreen from "../screens/VerifyCodeScreen";
 import MyProfileScreen from "../screens/MyProfileScreen";
+import TestScreen from "../screens/TestScreen";
+
 import { RootStackParamList } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import { ClerkLoaded, useUser } from "@clerk/clerk-expo";
@@ -37,11 +39,18 @@ const RootNavigator = () => {
     <ClerkLoaded>
       <Stack.Navigator>
         {isSignedIn ? (
+          <>
           <Stack.Screen
             name="MyProfile"
             component={MyProfileScreen}
             options={{ title: "MyProfile" }}
           />
+          <Stack.Screen
+            name="Test"
+            component={TestScreen}
+            options={{ title: "Test" }}
+          />
+          </>
         ) : (
           <>
             <Stack.Screen

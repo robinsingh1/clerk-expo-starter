@@ -11,6 +11,7 @@ export type RootStackParamList = {
   SignUp: undefined;
   SignIn: undefined;
   MyProfile: undefined;
+  Test: undefined;
   VerifyCode: undefined;
 };
 

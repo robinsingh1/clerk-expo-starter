@@ -6,24 +6,7 @@ import { RootStackScreenProps } from "../types";
 import Swiper from 'react-native-deck-swiper'
 
 
-export default function SafeMyProfileScreen(
-  props: RootStackScreenProps<"MyProfile">
-) {
-  return (
-    <>
-      <SignedIn>
-        <MyProfileScreen {...props} />
-      </SignedIn>
-      <SignedOut>
-        <View style={styles.container}>
-          <Text>Unauthorized</Text>
-        </View>
-      </SignedOut>
-    </>
-  );
-}
-
-function MyProfileScreen({ navigation }: RootStackScreenProps<"MyProfile">) {
+export default function TestScreen({ navigation }: RootStackScreenProps<"Test">) {
   const { getToken, signOut } = useAuth();
   const { user } = useUser();
 
@@ -51,7 +34,7 @@ function MyProfileScreen({ navigation }: RootStackScreenProps<"MyProfile">) {
     <View style={styles.container}>
       <Text style={styles.title}>Hello {user?.firstName}</Text>
 
-      {/* <Swiper
+      <Swiper
             cards={['DO', 'MORE', 'OF', 'WHAT', 'MAKES', 'YOU', 'HAPPY']}
             renderCard={(card) => {
                 return (
@@ -72,15 +55,13 @@ function MyProfileScreen({ navigation }: RootStackScreenProps<"MyProfile">) {
             cardIndex={0}
             backgroundColor={'#4FD0E9'}
             stackSize= {3}>
-        </Swiper> */}
-        <TouchableOpacity onPress={()=>{navigation.push("Test")}} style={styles.link}>
-         <Text style={styles.linkText}>Test</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={onSignOutPress} style={styles.link}>
+        </Swiper>
+        
+      {/* <TouchableOpacity onPress={onSignOutPress} style={styles.link}>
         <Text style={styles.linkText}>Sign out</Text>
         <Text style={styles.linkText}>Sign out</Text>
       </TouchableOpacity>
-      <Text style={styles.token}>{sessionToken}</Text>
+      <Text style={styles.token}>{sessionToken}</Text> */}
     </View>
   );
 }
